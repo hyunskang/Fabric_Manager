@@ -15,6 +15,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
+  gem 'factory_girl'
+  gem "factory_girl_rails", "~> 4.0"
+  gem "cucumber-rails-training-wheels", :group => :test
 end
 
 # Gems used only for assets and not required

@@ -5,5 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = User.create({email: 'user@hostname.com', password: 'user1234'})
-fabric = Fabric.create({color: 'Red', serial: 'RMC20150409', price: 7.5, quantity: 10})
+puts "**  Seeding Database: seeding ***\n\n"
+
+unless User.where(email: "user@hostname.com").first
+User.create!(email: 'user@hostname.com',
+            password: 'user1234',
+            password_confirmation: 'user1234')
+puts "-- Created user@hostname.com with password user1234\n"
+end
+
+unless Fabric.where(serial: 'RMC20150409').first
+  Fabric.create!({color: 'Red', serial: 'RMC20150409', price: 7.5, quantity: 10})
+end
+
+unless Fabric.where(serial: 'GMC20150309').first
+  Fabric.create!({color: 'Green', serial: 'GMC20150309', price: 8.0, quantity: 25})
+end
+
+puts "\n**  Seeding Database: completed ***"

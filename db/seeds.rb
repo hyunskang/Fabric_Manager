@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+user = User.create({email: 'user@hostname.com', password: 'user1234'})
+fabric = Fabric.create({color: 'Red', serial: 'RMC20150409', price: 7.5, quantity: 10})

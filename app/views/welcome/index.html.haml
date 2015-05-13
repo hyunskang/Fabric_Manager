@@ -1,8 +1,13 @@
 %body.user_show
+  = render 'shared/top_menu_bar'
+
   = render 'shared/welcome_side_bar'
 
-  %div.icon-menu
-    %i.glyphicons.icon-list Menu
+  %div.jumbotron.welcome_jumbo
+    %div.icon-menu
+      %i.glyphicons.icon-list.welcome_icon-list Menu
 
-  %div.jumbotron_show
-    %h1 Welcome
+    %div.container
+      %div.content
+        %h1 Welcome
+        %p Fabric is used everywhere from clothes,...

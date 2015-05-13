@@ -6,6 +6,7 @@ class UserController < ApplicationController
   end
 
   def show
+  	@user = current_user
     @fabrics = Fabric.all
   end
 end

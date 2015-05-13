@@ -1,0 +1,8 @@
+%div.menu
+  %div.icon-close 
+    =image_tag "http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png", class: "icon-close"
+
+  %ul
+    %li= link_to "About", ""
+    %li= link_to "Sign up", root_path(:proceed => "register")
+    %li= link_to "Sign in", root_path(:proceed => "login")

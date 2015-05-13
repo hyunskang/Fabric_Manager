@@ -21,5 +21,6 @@ end
 unless Fabric.where(serial: 'GMC20150309').first
   Fabric.create!({color: 'Green', serial: 'GMC20150309', price: 8.0, quantity: 25})
 end
+puts "-- Created fabrics\n"
 
 puts "\n**  Seeding Database: completed ***"

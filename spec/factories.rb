@@ -33,3 +33,12 @@
 #   end
 
 # end
+
+FactoryGirl.define do
+  # factorygirl to create a user
+  factory :user do
+  	email "fabric_user@hostname.com"
+  	password "user1234"
+  	password_confirmation "user1234"
+  end
+end

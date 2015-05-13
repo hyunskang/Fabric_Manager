@@ -18,15 +18,26 @@
 /           %td= fabric.price
 /           %td= link_to "More Information"
 %body.user_show
-  %div.menu
-    %div.icon-close 
-      =image_tag "http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png", class: "icon-close"
+  = render 'shared/side_menu_bar'
 
-    %ul
-      %li= link_to "About", ""
-      %li= link_to "Statistics", ""
-      %li= link_to "Contact", ""
-
-  %div.jumbotron
+  %div.jumbotron_show
     %div.icon-menu
-      %i Menu
+      %i.glyphicons.icon-list Menu
+
+    %table#fabrics
+      %thead
+        %tr
+          %th Color
+          %th Serial
+          %th Quantity
+          %th Price
+          %th More Info
+      %tbody
+        - if @fabrics.any?
+          - @fabrics.each do |fabric|
+            %tr
+              %td= fabric.color 
+              %td= fabric.serial
+              %td= fabric.quantity
+              %td= fabric.price
+              %td= link_to "More Information"

@@ -10,7 +10,7 @@ var FabricCreation = {
   create_fabric: function() {
     $.ajax({
       type: 'POST',
-      url: '/user/' + gon.user_id + '/fabrics/create'
+      url: '/fabrics/create'
     });
     return(false);
   }

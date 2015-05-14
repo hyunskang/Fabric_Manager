@@ -8,6 +8,13 @@ gem 'rails', '3.2.16'
 
 gem 'devise'
 gem 'rake'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+gem 'd3_rails'
+gem 'gon'
+gem 'simple_form'
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 group :development, :test do
   gem 'sqlite3'
@@ -18,6 +25,7 @@ group :development, :test do
   gem 'factory_girl'
   gem "factory_girl_rails", "~> 4.0"
   gem "cucumber-rails-training-wheels", :group => :test
+  gem 'jasmine'
 end
 
 # Gems used only for assets and not required

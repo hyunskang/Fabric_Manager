@@ -1,19 +1,35 @@
-%h1 User Index Page
+%body.user_show
+  = render 'shared/top_menu_bar'
 
-%table#fabrics
-  %thead
-    %tr
-      %th Color
-      %th Serial
-      %th Quantity
-      %th Price
-      %th More Info
-  %tbody
-    - if @fabrics.any?
-      - @fabrics.each do |fabric|
+  = render 'shared/side_menu_bar'
+
+  %div
+    %div.icon-menu
+      %i.glyphicons.icon-list Menu
+
+    %table#fabrics.table.table-hover
+      %thead
         %tr
-          %td= fabric.color 
-          %td= fabric.serial
-          %td= fabric.quantity
-          %td= fabric.price
-          %td= link_to "More Information"
+          %th Color
+          %th Serial
+          %th Quantity
+          %th Price
+          %th More Info
+      %tbody#fabric_table
+        - if @fabrics.any?
+          - @fabrics.each do |fabric|
+            %tr
+              %td= fabric.color 
+              %td= fabric.serial
+              %td= fabric.quantity
+              %td= fabric.price
+              %td= link_to "More Information"
+
+    %p.create_button Add new Item to Inventory
+    %div.fabric_creation_form
+      = simple_form_for :fabric, remote: true, :url => user_fabric_index_path(@user) do |f|
+        = f.input :color, :as => :string
+        = f.input :serial, :as => :string
+        = f.input :quantity, :as => :integer
+        = f.input :price, :as => :decimal
+        = f.submit "Add Fabric", id: "add_fabric_btn"

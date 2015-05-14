@@ -1,3 +1,13 @@
-%h1 Welcome
+%body.user_show
+  = render 'shared/top_menu_bar'
 
-= link_to "Sign In", new_user_session_path
+  = render 'shared/welcome_side_bar'
+
+  %div.jumbotron.welcome_jumbo
+    %div.icon-menu
+      %i.glyphicons.icon-list.welcome_icon-list Menu
+
+    %div.container
+      %div.content
+        %h1 Welcome
+        %p Fabric is used everywhere from clothes,...

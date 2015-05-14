@@ -1,0 +1,9 @@
+<p id='create_button'>Add new Item to Inventory</p>
+<div id='fabric_creation_form'>
+  <form accept-charset="UTF-8" action="/user/1/fabric" class="simple_form fabric" data-remote="true" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="pfcrRCcVLnhhFWQ9rZpUgJ6xDZVmVYuLre5elDkdOr0=" /></div>      <div class="input string required fabric_color"><label class="string required control-label" for="fabric_color"><abbr title="required">*</abbr> Color</label><input class="string required" id="fabric_color" name="fabric[color]" size="50" type="text" /></div>
+    <div class="input string required fabric_serial"><label class="string required control-label" for="fabric_serial"><abbr title="required">*</abbr> Serial</label><input class="string required" id="fabric_serial" name="fabric[serial]" size="50" type="text" /></div>
+    <div class="input integer required fabric_quantity"><label class="integer required control-label" for="fabric_quantity"><abbr title="required">*</abbr> Quantity</label><input class="numeric integer required" id="fabric_quantity" name="fabric[quantity]" step="1" type="number" /></div>
+    <div class="input decimal required fabric_price"><label class="decimal required control-label" for="fabric_price"><abbr title="required">*</abbr> Price</label><input class="numeric decimal required" id="fabric_price" name="fabric[price]" step="any" type="number" /></div>
+    <input id="add_fabric_btn" name="commit" type="submit" value="Add Fabric" />
+  </form>
+</div>

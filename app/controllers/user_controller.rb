@@ -8,5 +8,7 @@ class UserController < ApplicationController
   def show
   	@user = current_user
     @fabrics = Fabric.all
+    gon.user_id = @user.id
+    render(:partial => 'create_fabric') if request.xhr?
   end
 end

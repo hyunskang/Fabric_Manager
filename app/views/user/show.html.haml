@@ -27,7 +27,9 @@
 
     %p.create_button Click me!
     %div.fabric_creation_form
-      = simple_form_for :fabrics, remote: true, :url => { :action => "create", :controller => :fabrics } do |f|
-
-
-        = f.button :submit
+      = simple_form_for :fabric, remote: true, :url => {:action => "create", :controller => "fabric"} do |f|
+        = f.input :color
+        = f.input :serial
+        = f.input :quantity
+        = f.input :price
+        = f.submit "Add Fabric", id: "add_fabric_btn"

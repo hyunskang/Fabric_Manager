@@ -10,9 +10,13 @@ var FabricCreation = {
   create_fabric: function() {
     $.ajax({
       type: 'POST',
-      url: '/fabrics/create'
+      url: '/fabric',
+      success: FabricCreation.display_fabric
     });
     return(false);
+  },
+  display_fabric: function() {
+
   }
 };
 

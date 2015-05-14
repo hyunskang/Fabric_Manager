@@ -4,13 +4,8 @@ FabricManager::Application.routes.draw do
 
   devise_for :users, :path => 'user'
 
-  resources :user do
-    
-  end
-
-  resources :fabrics do
-
-  end
+  resources :user
+  resources :fabric
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

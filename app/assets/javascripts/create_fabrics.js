@@ -5,6 +5,7 @@ var FabricCreation = {
   },
   display_form: function() {
     $('.fabric_creation_form').show();
+    $(document).on('click', '#add_fabric_btn', FabricCreation.setup);
   }
 };
 

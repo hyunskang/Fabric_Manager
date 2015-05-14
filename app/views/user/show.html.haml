@@ -25,7 +25,7 @@
               %td= fabric.price
               %td= link_to "More Information"
 
-    %p.create_button Click me!
+    %p.create_button Add new Item to Inventory
     %div.fabric_creation_form
       = simple_form_for :fabric, remote: true, :url => user_fabric_index_path(@user) do |f|
         = f.input :color, :as => :string

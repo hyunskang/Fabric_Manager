@@ -1,4 +1,6 @@
 class FabricController < ApplicationController
+  before_filter :authenticate_user!
+
   def create
     @fabric = Fabric.new(params[:fabric])
     if @fabric.save

@@ -13,6 +13,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem 'd3_rails'
 gem 'gon'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3'

@@ -1,22 +1,3 @@
-/ %h1 User Index Page
-
-/ %table#fabrics
-/   %thead
-/     %tr
-/       %th Color
-/       %th Serial
-/       %th Quantity
-/       %th Price
-/       %th More Info
-/   %tbody
-/     - if @fabrics.any?
-/       - @fabrics.each do |fabric|
-/         %tr
-/           %td= fabric.color 
-/           %td= fabric.serial
-/           %td= fabric.quantity
-/           %td= fabric.price
-/           %td= link_to "More Information"
 %body.user_show
   = render 'shared/top_menu_bar'
 
@@ -46,3 +27,7 @@
 
     %p.create_button Click me!
     %div.fabric_creation_form
+      = form_tag user_fabrics_path(@user) do
+
+
+        = submit_tag "Add Fabric", id: "add_fabric_btn"

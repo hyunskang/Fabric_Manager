@@ -3,6 +3,7 @@ class FabricController < ApplicationController
 
   def create
     # Validate the input passed to the controller action
+    @user = User.where("id=?", params[:user_id]).first
     if validate_attr(params[:fabric])
       @fabric = Fabric.create(params[:fabric])
       respond_to do |format|
@@ -11,6 +12,15 @@ class FabricController < ApplicationController
       end
     else
       render :nothing => true
+    end
+  end
+
+  def destroy
+    @fabric = Fabric.where("id=?", params[:id]).first
+    @fabric.destroy
+    respond_to do |format|
+      format.js {render 'destroy.js.erb'}
+      format.html { redirect_to user_path(params[:user_id]), :notice => "Fabric S/N: #{@fabric.serial} removed successfully"}
     end
   end
 

@@ -26,18 +26,32 @@ class FabricController < ApplicationController
 
   # Takes a hash as parameter and returns true or false
   def validate_attr(fab_attr)
-    quantity = Integer(fab_attr[:quantity]) rescue false
-    price = Float(fab_attr[:price]) rescue false
-    if Fabric.repeated_serial?(fab_attr[:serial])
-      flash[:alert] = "An item with the serial number #{fab_attr[:serial]} already exists."
-      return false
-    elsif fab_attr[:serial].length < 10 || !/\W/.match(fab_attr[:serial]).nil?
-      flash[:alert] = "Enter a valid alphanumeric serial number."
+    if !valid_serial?(fab_attr[:serial])
       return false
     elsif !/\W|\d/.match(fab_attr[:color]).nil?
       flash[:alert] = "Enter a valid color."
       return false
-    elsif !quantity || !price
+    elsif !valid_price_or_quantity?(fab_attr[:price], fab_attr[:quantity])
+      return false
+    end
+    return true
+  end
+
+  def valid_serial?(serial)
+    if Fabric.repeated_serial?(serial)
+      flash[:alert] = "An item with the serial number #{serial} already exists."
+      return false
+    elsif serial.length < 10 || !/\W/.match(serial).nil?
+      flash[:alert] = "Enter a valid alphanumeric serial number."
+      return false
+    end
+    return true
+  end
+
+  def valid_price_or_quantity?(price, quantity)
+    quantity = Integer(quantity) rescue false
+    price = Float(price) rescue false
+    if !quantity || !price
       flash[:alert] = "Enter a valid quantity or price."
       return false
     end

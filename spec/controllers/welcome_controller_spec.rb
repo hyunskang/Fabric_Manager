@@ -18,4 +18,12 @@ describe WelcomeController do
       response.should redirect_to new_user_session_path
     end
   end
+
+  describe "GET index logged in" do
+    @user = login :user
+    it "should redirect to user main page" do
+      get 'index'
+      response.should redirect_to user_path(@user.id)
+    end
+  end
 end

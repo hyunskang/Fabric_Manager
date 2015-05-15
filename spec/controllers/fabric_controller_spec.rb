@@ -25,6 +25,12 @@ describe FabricController do
         post 'create', :user_id => 1, :fabric => @fabric_param
         }.to change{Fabric.count}.by(1)
     end
+
+    it "should render nothing if it fails to validate input" do
+      FabricController.any_instance.stub(:validate_attr).and_return(false)
+      post 'create', :user_id => 1, :fabric => @fabric_param
+      response.should_not render_template :show
+    end
   end
 
   describe "validate input" do
@@ -86,6 +92,10 @@ describe FabricController do
       @test_params[:serial] = fabric.serial
       controller.validate_attr(@test_params)
       flash[:alert].should == "An item with the serial number #{fabric.serial} already exists."
+    end
+
+    it "should return true for correct input" do
+      controller.validate_attr(@test_params).should == true
     end
   end
 

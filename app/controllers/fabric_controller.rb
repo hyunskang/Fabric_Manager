@@ -4,9 +4,7 @@ class FabricController < ApplicationController
   def create
     # Validate the input passed to the controller action
     if validate_attr(params[:fabric])
-      @fabric = Fabric.new(params[:fabric])
-    end
-    if @fabric.save
+      @fabric = Fabric.create(params[:fabric])
       respond_to do |format|
         format.js { render 'create.js.erb' }
         format.html { render :nothing => true, :notice => 'New Item added to Inventory' }

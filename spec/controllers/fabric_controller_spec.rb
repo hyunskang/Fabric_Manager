@@ -4,6 +4,7 @@ describe FabricController do
   login :user
   describe "create fabric" do
     before :each do
+      Fabric.any_instance.stub(:repeated_serial?).and_return(false)
       @fabric_param = {
         color: "Red",
         serial: "AMMEL123EEA",
@@ -15,7 +16,7 @@ describe FabricController do
     it "response should be success" do
       FabricController.any_instance.stub(:validate_attr).and_return(true)
       post 'create', :user_id => 1, :fabric => @fabric_param
-      response.should be_success
+      response.should redirect_to user_path(1)
     end
 
     it "should create a new fabric record" do 
@@ -79,5 +80,12 @@ describe FabricController do
       controller.validate_attr(@test_params)
       flash[:alert].should == "Enter a valid quantity or price."
     end 
+
+    it "should assign the correct repeated serial error message" do
+      fabric = FactoryGirl.create(:fabric)
+      @test_params[:serial] = fabric.serial
+      controller.validate_attr(@test_params)
+      flash[:alert].should == "An item with the serial number #{fabric.serial} already exists."
+    end
   end
 end

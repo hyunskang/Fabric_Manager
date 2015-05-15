@@ -7,7 +7,7 @@ class FabricController < ApplicationController
       @fabric = Fabric.create(params[:fabric])
       respond_to do |format|
         format.js { render 'create.js.erb' }
-        format.html { render :nothing => true, :notice => 'New Item added to Inventory' }
+        format.html { redirect_to user_path(params[:user_id]), :notice => 'New Item added to Inventory' }
       end
     else
       render :nothing => true
@@ -18,7 +18,10 @@ class FabricController < ApplicationController
   def validate_attr(fab_attr)
     quantity = Integer(fab_attr[:quantity]) rescue false
     price = Float(fab_attr[:price]) rescue false
-    if fab_attr[:serial].length < 10 || !/\W/.match(fab_attr[:serial]).nil?
+    if Fabric.repeated_serial?(fab_attr[:serial])
+      flash[:alert] = "An item with the serial number #{fab_attr[:serial]} already exists."
+      return false
+    elsif fab_attr[:serial].length < 10 || !/\W/.match(fab_attr[:serial]).nil?
       flash[:alert] = "Enter a valid alphanumeric serial number."
       return false
     elsif !/\W|\d/.match(fab_attr[:color]).nil?

@@ -41,4 +41,11 @@ FactoryGirl.define do
   	password "user1234"
   	password_confirmation "user1234"
   end
+
+  factory :fabric do
+    color "Red"
+    serial "AMD2219PPLKM"
+    quantity 1
+    price 7.5
+  end
 end

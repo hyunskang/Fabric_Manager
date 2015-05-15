@@ -14,6 +14,16 @@ class FabricController < ApplicationController
     end
   end
 
+  def destroy
+    @fabric = Fabric.where("id=?", params[:id]).first
+    @fabric.destroy
+    gon.fabric_id = @fabric.id
+    respond_to do |format|
+      format.js {render 'destroy.js.erb'}
+      format.html { redirect_to user_path(params[:user_id]), :notice => "Fabric S/N: #{@fabric.serial} removed successfully"}
+    end
+  end
+
   # Takes a hash as parameter and returns true or false
   def validate_attr(fab_attr)
     quantity = Integer(fab_attr[:quantity]) rescue false

@@ -14,16 +14,16 @@
           %th Serial
           %th Quantity
           %th Price
-          %th More Info
+          %th Actions
       %tbody#fabric_table
         - if @fabrics.any?
           - @fabrics.each do |fabric|
-            %tr
+            %tr{:id => fabric.id}
               %td= fabric.color 
               %td= fabric.serial
               %td= fabric.quantity
               %td= fabric.price
-              %td= link_to "More Information"
+              %td= link_to "Remove", user_fabric_path(@user, fabric), :method => "delete", :remote => true
 
     %p#create_button Add new Item to Inventory
     %div#fabric_creation_form

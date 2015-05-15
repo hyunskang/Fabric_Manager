@@ -88,4 +88,12 @@ describe FabricController do
       flash[:alert].should == "An item with the serial number #{fabric.serial} already exists."
     end
   end
+
+  describe "remove fabric from inventory" do
+    it "should remove the item from the database" do
+      fabric = FactoryGirl.create(:fabric)
+      delete 'destroy', :user_id => 1, :id => fabric.id
+      response.should redirect_to user_path(1)
+    end
+  end
 end

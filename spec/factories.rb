@@ -36,11 +36,6 @@
 # end
 
 FactoryGirl.define do  
-
-  factory :calculator do
-    
-  end
-
   # factorygirl to create a user
   factory :user do
   	email "fabric_user@hostname.com"

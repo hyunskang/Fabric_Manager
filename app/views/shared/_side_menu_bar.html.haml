@@ -3,7 +3,8 @@
     =image_tag "http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png", class: "icon-close"
 
   %ul
+    %li= link_to "Home", user_path(current_user)
     %li= link_to "About", ""
-    %li= link_to "Statistics", ""
+    %li= link_to "Calculate", user_calculate_path(current_user)
     %li= link_to "Contact", ""
     %li= link_to "Logout", destroy_user_session_path, method: :delete

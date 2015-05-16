@@ -1,6 +1,14 @@
 class FabricController < ApplicationController
   before_filter :authenticate_user!
 
+  def index
+
+  end
+
+  def show
+
+  end
+
   def create
     # Validate the input passed to the controller action
     @user = User.where("id=?", params[:user_id]).first

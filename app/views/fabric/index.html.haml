@@ -1,0 +1,21 @@
+%body.user_show
+  = render 'shared/top_menu_bar'
+
+  = render 'shared/side_menu_bar'
+
+  %div#fabric_input_field
+    %p Enter the Fabric S/N:
+    / Create a form to input the serial number
+  
+  %div#fabric_list
+    / List out all the fabric just name and price
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Color
+          %th Serial
+          %th Price
+      %tbody
+        - if @fabrics.any?
+          - @fabrics.each do |fabric|
+            %tr= link_to "#{fabric.color}", 

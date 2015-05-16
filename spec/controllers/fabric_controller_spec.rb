@@ -106,4 +106,11 @@ describe FabricController do
       response.should redirect_to user_path(1)
     end
   end
+
+  describe "GET index" do
+    it "should be success" do
+      get 'index', :user_id => 1
+      response.should be_success
+    end
+  end
 end

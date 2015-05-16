@@ -3,10 +3,12 @@
 
   = render 'shared/side_menu_bar'
 
+  %p#activate_field Search By S/N
   %div#fabric_input_field
     %p Enter the Fabric S/N:
     / Create a form to input the serial number
     = simple_form_for :fabric, remote: true, :url => search_user_fabric_index_path(current_user) do |f|
+      = f.input :serial, :as => :string
       = f.submit "Show Fabric"
   %div#fabric_list
     / List out all the fabric just name and price
@@ -20,7 +22,7 @@
         - if @fabrics.any?
           - @fabrics.each do |fabric|
             %tr
-              %td= link_to "#{fabric.color}", user_fabric_path(current_user, fabric)
-              %td= link_to "#{fabric.serial}", user_fabric_path(current_user, fabric)
+              %td= link_to "#{fabric.color}", user_fabric_path(current_user, fabric), :method => "get", :remote => true
+              %td= link_to "#{fabric.serial}", user_fabric_path(current_user, fabric), :method => "get", :remote => true
               %td= fabric.price
 

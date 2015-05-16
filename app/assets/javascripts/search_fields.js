@@ -4,7 +4,7 @@ var SearchFields = {
     $(document).on('click', '#activate_field', SearchFields.display_fields);
   },
   display_fields: function () {
-    $('#fabric_input_field').show();
+    $('#fabric_input_field').show(200)
   }
 };
 

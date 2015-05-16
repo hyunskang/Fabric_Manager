@@ -8,6 +8,7 @@ FabricManager::Application.routes.draw do
     # get 'index', to: 'calculator#index', as: 'calculate'
     resources :fabric do
       post 'search', on: :collection
+      post 'calculate', :to => "calculator#calculate"
     end
   end
   

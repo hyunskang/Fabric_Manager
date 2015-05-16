@@ -1,7 +1,5 @@
 # FactoryGirl.define do  factory :calculator do
     
-  end
-  
 #   factory :application_type do
 #     app_type "vendor"
 #   end
@@ -37,7 +35,9 @@
 
 # end
 
-FactoryGirl.define do  factory :calculator do
+FactoryGirl.define do  
+
+  factory :calculator do
     
   end
 

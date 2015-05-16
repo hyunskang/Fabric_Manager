@@ -11,15 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150406230641) do
+ActiveRecord::Schema.define(:version => 20150516041648) do
+
+  create_table "calculators", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "fabrics", :force => true do |t|
     t.string   "color"
     t.string   "serial"
     t.integer  "quantity"
     t.decimal  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.decimal  "meters_sold",  :default => 0.0, :null => false
+    t.integer  "rolls_sold",   :default => 0,   :null => false
+    t.decimal  "total_profit", :default => 0.0, :null => false
   end
 
   create_table "users", :force => true do |t|

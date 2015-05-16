@@ -5,7 +5,11 @@ FabricManager::Application.routes.draw do
   devise_for :users, :path => 'user'
 
   resources :user do
-    resources :fabric
+    # get 'index', to: 'calculator#index', as: 'calculate'
+    resources :fabric do
+      post 'search', on: :collection
+      post 'calculate', :to => "calculator#calculate"
+    end
   end
   
   # The priority is based upon order of creation:

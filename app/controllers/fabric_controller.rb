@@ -1,6 +1,23 @@
 class FabricController < ApplicationController
   before_filter :authenticate_user!
 
+  def index
+    @fabrics = Fabric.all
+  end
+
+  def show
+    @fabric = Fabric.where("id=?", params[:id]).first
+    respond_to do |format|
+      format.js { render 'show.js.erb'}
+      format.html { render :show }
+    end
+  end
+
+  def search
+    @fabric = Fabric.where("serial=?", params[:fabric][:serial]).first
+    redirect_to user_fabric_path(current_user, @fabric)
+  end
+
   def create
     # Validate the input passed to the controller action
     @user = User.where("id=?", params[:user_id]).first

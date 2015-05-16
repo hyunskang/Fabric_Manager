@@ -4,16 +4,16 @@
   = render 'shared/side_menu_bar'
 
   %div
-    %div.icon-menu
-      %i.glyphicons.icon-list Menu
-
     %table#fabrics.table.table-hover
       %thead
         %tr
           %th Color
           %th Serial
           %th Quantity
-          %th Price
+          %th Price/m
+          %th Meters Sold
+          %th Rolls Sold
+          %th Profit
           %th Actions
       %tbody#fabric_table
         - if @fabrics.any?
@@ -23,6 +23,9 @@
               %td= fabric.serial
               %td= fabric.quantity
               %td= fabric.price
+              %td= fabric.meters_sold
+              %td= fabric.rolls_sold
+              %td= fabric.total_profit
               %td= link_to "Remove", user_fabric_path(@user, fabric), :method => "delete", :remote => true
 
     %p#create_button Add new Item to Inventory

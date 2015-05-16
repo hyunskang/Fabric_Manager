@@ -120,5 +120,22 @@ describe FabricController do
       get 'show', :user_id => 1, :id => fabric.id
       response.should be_success
     end
+
+    it "should assign the right fabric record" do
+      fabric = FactoryGirl.create(:fabric)
+      get 'show', :user_id => 1, :id => fabric.id
+      assigns(:fabric).should == fabric
+    end
+  end
+
+  describe "search fabric" do
+    it "should assign @fabric with the correct fabric" do
+      fabric = FactoryGirl.create(:fabric)
+      correct_input = {
+        serial: fabric.serial
+      }
+      post 'search', :user_id => 1, :fabric => correct_input
+      assigns(:fabric).should == fabric
+    end
   end
 end

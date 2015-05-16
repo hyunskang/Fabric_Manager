@@ -6,11 +6,15 @@ class FabricController < ApplicationController
   end
 
   def show
-
+    @fabric = Fabric.where("id=?", params[:id]).first
   end
 
   def search
-    
+    @fabric = Fabric.where("serial=?", params[:fabric][:serial]).first
+    respond_to do |format|
+      format.js {render 'show.js.erb'}
+      format.html {redirect_to user_fabric_path(current_user, @fabric)}
+    end
   end
 
   def create

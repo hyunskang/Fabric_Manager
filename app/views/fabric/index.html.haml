@@ -18,4 +18,8 @@
       %tbody
         - if @fabrics.any?
           - @fabrics.each do |fabric|
-            %tr= link_to "#{fabric.color}", 
+            %tr
+              %td= link_to "#{fabric.color}", user_fabric_path(current_user, fabric)
+              %td= link_to "#{fabric.serial}", user_fabric_path(current_user, fabric)
+              %td= fabric.price
+

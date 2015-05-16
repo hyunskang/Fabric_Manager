@@ -5,7 +5,7 @@ FabricManager::Application.routes.draw do
   devise_for :users, :path => 'user'
 
   resources :user do
-    get 'index', to: 'calculator#index', as: 'calculate'
+    # get 'index', to: 'calculator#index', as: 'calculate'
     resources :fabric
   end
   

@@ -6,7 +6,9 @@ FabricManager::Application.routes.draw do
 
   resources :user do
     # get 'index', to: 'calculator#index', as: 'calculate'
-    resources :fabric
+    resources :fabric do
+      post 'search', on: :collection
+    end
   end
   
   # The priority is based upon order of creation:

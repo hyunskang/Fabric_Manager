@@ -6,7 +6,8 @@
   %div#fabric_input_field
     %p Enter the Fabric S/N:
     / Create a form to input the serial number
-  
+    = simple_form_for :fabric, remote: true, :url => search_user_fabric_index_path(current_user) do |f|
+      = f.submit "Show Fabric"
   %div#fabric_list
     / List out all the fabric just name and price
     %table.table.table-hover

@@ -9,6 +9,10 @@ class FabricController < ApplicationController
 
   end
 
+  def search
+    
+  end
+
   def create
     # Validate the input passed to the controller action
     @user = User.where("id=?", params[:user_id]).first

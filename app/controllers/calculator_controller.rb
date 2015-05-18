@@ -7,8 +7,7 @@ class CalculatorController < ApplicationController
     # Future updates: should update the daily records
     input_meters = BigDecimal.new(params[:meters])
     @fabric = Fabric.where("id=?", params[:fabric_id]).first
-    @fabric.update_attribute(:meters_sold, input_meters + @fabric.meters_sold)
-    @fabric.update_attribute(:total_profit, input_meters*@fabric.price + @fabric.total_profit)
+    @fabric.update_attributes({meters_sold: input_meters + @fabric.meters_sold, total_profit: input_meters*@fabric.price + @fabric.total_profit})
     respond_to do |format|
       format.js
       format.html {redirect_to user_fabric_path(params[:user_id], params[:fabric_id])}

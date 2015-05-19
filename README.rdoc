@@ -1,1 +1,4 @@
 == Welcome to FabM
+
+https://codeclimate.com/github/brokenfingers/Fabric_Manager
+https://travis-ci.org/brokenfingers/Fabric_Manager

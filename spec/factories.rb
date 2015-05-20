@@ -1,5 +1,4 @@
-# FactoryGirl.define do  factory :calculator do
-    
+# FactoryGirl.define do 
 #   factory :application_type do
 #     app_type "vendor"
 #   end
@@ -36,6 +35,11 @@
 # end
 
 FactoryGirl.define do  
+
+  factory :record do
+    
+  end
+  
   # factorygirl to create a user
   factory :user do
   	email "fabric_user@hostname.com"

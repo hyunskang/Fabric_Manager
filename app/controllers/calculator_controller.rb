@@ -8,6 +8,7 @@ class CalculatorController < ApplicationController
     input_meters = BigDecimal.new(params[:meters])
     @fabric = Fabric.where("id=?", params[:fabric_id]).first
     @fabric.update_attributes({meters_sold: input_meters + @fabric.meters_sold, total_profit: input_meters*@fabric.price + @fabric.total_profit})
+    # @fabric.add_new_record()
     respond_to do |format|
       format.js
       format.html {redirect_to user_fabric_path(params[:user_id], params[:fabric_id])}

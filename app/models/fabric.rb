@@ -10,5 +10,6 @@ class Fabric < ActiveRecord::Base
     # Get the date and use it to create a new record
     record = Record.new
     record.update_record(data_hash)
+    self.records << record
   end
 end

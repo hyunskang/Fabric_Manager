@@ -5,6 +5,9 @@ class CalculatorController < ApplicationController
     # Should calculate the total cost from the meters received and update
     # the total meters sold and total profit
     # Future updates: should update the daily records
+    # Future updates: should update the daily records by creating new record and adding to the
+    # array of records. For this create an association of fabric has many records.
+    input_meters = BigDecimal.new(params[:meters])
     @fabric = Fabric.where("id=?", params[:fabric_id]).first
     data_hash = parse_data_from_params(@fabric)
     @fabric.update_attributes({meters_sold: data_hash[:meters_sold], total_profit: data_hash[:profit]})

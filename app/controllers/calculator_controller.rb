@@ -13,8 +13,8 @@ class CalculatorController < ApplicationController
     @fabric.update_attributes({meters_sold: data_hash[:meters_sold], total_profit: data_hash[:profit]})
     @fabric.add_new_record(data_hash)
     respond_to do |format|
-      format.js
-      format.html {redirect_to user_fabric_path(params[:user_id], params[:fabric_id])}
+      format.js {render 'calculate.js.erb'}
+      # format.html {redirect_to user_fabric_path(params[:user_id], params[:fabric_id])}
     end
   end
 

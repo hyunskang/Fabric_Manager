@@ -1,4 +1,4 @@
-= form_tag user_fabric_calculate_path(current_user, @fabric) do
+= form_tag user_fabric_calculate_path(current_user, @fabric), remote: true do
   / Add the right fields
   = date_select nil, "transaction_date"
   = number_field_tag 'meters',nil, step: "any"

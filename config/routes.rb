@@ -11,7 +11,8 @@ FabricManager::Application.routes.draw do
       post 'calculate', :to => "calculator#calculate"
     end
 
-    resources :records
+    resources :records 
+    get 'fabric/:id/records' => 'records#display', :as => 'display_fabric_records'
   end
   
   # The priority is based upon order of creation:

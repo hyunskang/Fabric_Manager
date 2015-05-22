@@ -1,5 +1,9 @@
 %h4 Fabric Information
 
-%ul
+%ul#fabric_information
   %li= "S/N: #{@fabric.serial}"
-  %li= ""
+  %li= "Color: #{@fabric.color}"
+  %li= "Price per meter: #{@fabric.price}"
+  %li= "Quantity: #{@fabric.quantity}"
+  %li= "Meters Sold: #{@fabric.meters_sold}"
+  %li= "Total Profit: #{@fabric.total_profit}"

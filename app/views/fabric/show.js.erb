@@ -1,2 +1,3 @@
 $('#info_field').html("<%= escape_javascript(render partial: 'shared/fabric_info', locals: { items: @fabric} ) %>");
 $('#calculate_fields').html("<%= escape_javascript(render partial: 'shared/calculation_form', locals: { items: @fabric} ) %>");
+$('#update_info_field').hide(400);

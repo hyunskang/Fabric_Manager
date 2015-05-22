@@ -1,0 +1,22 @@
+%body.user_show
+  = render 'shared/top_menu_bar'
+
+  = render 'shared/side_menu_bar'
+
+  %div#fabric_list
+    / List out all the fabric just name and price
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Color
+          %th Serial
+          %th Price
+      %tbody
+        - if @fabrics.any?
+          - @fabrics.each do |fabric|
+            %tr
+              %td= link_to "#{fabric.color}", user_fabric_path(current_user, fabric), :method => "get", :remote => true
+              %td= link_to "#{fabric.serial}", user_fabric_path(current_user, fabric), :method => "get", :remote => true
+              %td= fabric.price
+
+  %div#transaction_list

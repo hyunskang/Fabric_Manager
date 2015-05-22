@@ -1,6 +1,15 @@
-= form_tag user_fabric_calculate_path(current_user, @fabric), remote: true do
+= form_tag user_fabric_calculate_path(current_user, @fabric), remote: true, class: "simple_form" do
   / Add the right fields
-  = date_select nil, "transaction_date"
-  = number_field_tag 'meters',nil, step: "any"
-  = number_field "fabric", "price", step: "any"
+  %div.input
+    = label_tag "transaction_date", "Transaction Date:"
+    = date_select nil, "transaction_date"
+
+  %div.input
+    = label_tag "meters", "Meters Sold:"
+    = number_field_tag 'meters',nil, step: "any", required: true
+
+  %div.input
+    = label_tag "fabric[price]", "Price per Meter:"
+    = number_field "fabric", "price", step: "any", required: true
+
   = submit_tag "Calculate"

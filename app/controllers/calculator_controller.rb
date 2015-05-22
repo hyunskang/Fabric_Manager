@@ -14,7 +14,7 @@ class CalculatorController < ApplicationController
     @fabric.add_new_record(data_hash)
     respond_to do |format|
       format.js {render 'calculate.js.erb'}
-      # format.html {redirect_to user_fabric_path(params[:user_id], params[:fabric_id])}
+      format.html {redirect_to user_fabric_path(params[:user_id], params[:fabric_id])}
     end
   end
 

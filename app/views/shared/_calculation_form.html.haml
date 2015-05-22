@@ -1,4 +1,6 @@
 = form_tag user_fabric_calculate_path(current_user, @fabric) do
   / Add the right fields
+  = date_select nil, "transaction_date"
   = number_field_tag 'meters',nil, step: "any"
+  = number_field "fabric", "price", step: "any"
   = submit_tag "Calculate"

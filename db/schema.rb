@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(:version => 20150520033812) do
   create_table "records", :force => true do |t|
     t.integer  "fabric_id"
     t.datetime "transaction_date"
-    t.string   "month",            :default => "", :null => false
-    t.string   "day",              :default => "", :null => false
-    t.string   "year",             :default => "", :null => false
+    t.integer  "month"
+    t.integer  "day"
+    t.integer  "year"
     t.text     "content",          :default => "", :null => false
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false

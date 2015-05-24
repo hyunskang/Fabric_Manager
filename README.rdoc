@@ -1,4 +1,6 @@
 == Welcome to FabM
 
+The purpose of this app is to provide fabric sellers a way to store, and manage numerous transaction records.
+
 https://codeclimate.com/github/brokenfingers/Fabric_Manager
 https://travis-ci.org/brokenfingers/Fabric_Manager

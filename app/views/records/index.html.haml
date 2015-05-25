@@ -15,8 +15,8 @@
         - if @fabrics.any?
           - @fabrics.each do |fabric|
             %tr
-              %td= link_to "#{fabric.color}", user_fabric_path(current_user, fabric), :method => "get", :remote => true
-              %td= link_to "#{fabric.serial}", user_fabric_path(current_user, fabric), :method => "get", :remote => true
+              %td= link_to "#{fabric.color}", user_display_fabric_records_path(current_user, fabric), :method => "get", :remote => true
+              %td= link_to "#{fabric.serial}", user_display_fabric_records_path(current_user, fabric), :method => "get", :remote => true
               %td= fabric.price
 
   %div#transaction_list

@@ -1,0 +1,12 @@
+/ Render the list of transactions
+%table.table.table-hover
+  %thead
+    %th
+  %tbody
+    - if @records.any?
+      - @records.each do |record|
+        %td
+        %td
+        %td
+        - record.content do |k, v|
+          %td

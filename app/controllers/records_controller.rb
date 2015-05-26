@@ -6,6 +6,7 @@ class RecordsController < ApplicationController
   end
 
   def display
+    @records = Fabric.where("id=?", params[:id]).records
     respond_to do |format|
       format.js { render 'transactions.js.erb'}
       format.html { render :show }

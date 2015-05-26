@@ -1,12 +1,17 @@
 / Render the list of transactions
 %table.table.table-hover
   %thead
-    %th
+    %th Input Date
+    %th Meters Sold
+    %th Profit
+    %th Price Per Meter
+    %th Trans. Year
+    %th Trans. Month
+    %th Trans. Day
   %tbody
     - if @records.any?
       - @records.each do |record|
-        %td
-        %td
-        %td
-        - record.content do |k, v|
-          %td
+        %tr
+          %td= "#{record.month}/#{record.day}/#{record.year}"
+          - record.content.values.each do |value|
+            %td= value

@@ -22,7 +22,7 @@ class CalculatorController < ApplicationController
     input_meters = BigDecimal.new(params[:meters])
     data = Hash.new
     data[:meters_sold] = input_meters + fabric.meters_sold
-    data[:profit] = input_meters*fabric.price + fabric.total_profit
+    data[:profit] = input_meters*fabric.price
     data[:price] = params[:fabric][:price]
     data[:transaction_year] = params["transaction_date(1i)"]
     data[:transaction_month] = params["transaction_date(2i)"]

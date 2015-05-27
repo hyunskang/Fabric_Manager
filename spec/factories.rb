@@ -37,7 +37,10 @@
 FactoryGirl.define do  
 
   factory :record do
-    
+    month 6
+    day 22
+    year 2014
+    content {}
   end
   
   # factorygirl to create a user

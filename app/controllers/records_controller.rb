@@ -15,5 +15,6 @@ class RecordsController < ApplicationController
 
   def search_by_date
     # Find records using the input date and do AJAX and UJS path
+    # logger.debug "PARAMS: #{params}"
   end
 end

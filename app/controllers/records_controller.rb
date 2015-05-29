@@ -13,4 +13,7 @@ class RecordsController < ApplicationController
     end
   end
 
+  def search_by_date
+    # Find records using the input date and do AJAX and UJS path
+  end
 end

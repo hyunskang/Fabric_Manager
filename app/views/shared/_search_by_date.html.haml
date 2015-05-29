@@ -1,5 +1,5 @@
 %h4 Search By Date
-= form_tag "", remote: true, class: "simple_form" do
+= form_tag search_by_date_user_records_path(current_user), remote: true, class: "simple_form" do
   / Add the right fields
   %div.input
     = label_tag "transaction_date", "Transaction Date:"

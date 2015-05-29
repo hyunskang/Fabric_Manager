@@ -12,4 +12,5 @@ class RecordsController < ApplicationController
       format.html { render :show }
     end
   end
+
 end

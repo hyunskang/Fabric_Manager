@@ -1,0 +1,8 @@
+%h4 Search By Date
+= form_tag "", remote: true, class: "simple_form" do
+  / Add the right fields
+  %div.input
+    = label_tag "transaction_date", "Transaction Date:"
+    = date_select nil, "transaction_date"
+
+  = submit_tag "Get Records"

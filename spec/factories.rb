@@ -37,6 +37,7 @@
 FactoryGirl.define do  
 
   factory :record do
+    association :fabric
     month 6
     day 22
     year 2014

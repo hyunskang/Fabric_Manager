@@ -5,5 +5,7 @@
     / = label_tag "transaction_date", "Transaction Date:"
     / = date_select nil, "transaction_date"
     / Use JQueryUI datepicker
+    = label_tag 'date', "Transaction Date:"
+    = text_field_tag 'date'
 
   = submit_tag "Get Records"

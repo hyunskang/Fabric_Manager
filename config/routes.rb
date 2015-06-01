@@ -11,7 +11,10 @@ FabricManager::Application.routes.draw do
       post 'calculate', :to => "calculator#calculate"
     end
 
-    resources :records 
+    resources :records do
+      post 'search_by_date', on: :collection
+    end
+
     get 'fabric/:id/records' => 'records#display', :as => 'display_fabric_records'
   end
   

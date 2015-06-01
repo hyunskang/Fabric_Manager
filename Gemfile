@@ -11,9 +11,10 @@ gem 'rake'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
-gem 'd3_rails'
+gem 'd3-rails'
 gem 'gon'
 gem 'simple_form'
+gem 'jquery-ui-rails'
 gem "codeclimate-test-reporter", group: :test, require: nil
 
 group :development, :test do
